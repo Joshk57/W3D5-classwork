@@ -1,5 +1,6 @@
 class PolyTreeNode
     attr_reader :value, :parent, :children
+
     def initialize(value)
         @value = value
         @parent = nil
@@ -23,5 +24,18 @@ class PolyTreeNode
         child_node.parent = nil
     end
 
-  
+    def bfs(target_value)
+        # return self if self.value == target_value
+        array = [self]
+        while !array.empty?
+            node = array.shift
+            if node.value == target_value
+                return node
+            else
+                array.concat(node.children)
+            end
+        end
+        return nil
+    end
+
 end
