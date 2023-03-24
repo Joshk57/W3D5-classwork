@@ -39,13 +39,24 @@ class KnightPathFinder
     end
 
     def new_move_positions(pos)
-        # should call valid_moves and then filter out any positions that are already
-        # in @considered_positions. Then, it should put the new positions into @considered_positions
+        # should call valid_moves and
+        # then filter out any positions that are already in @considered_positions.
+        #  Then, it should put the new positions into @considered_positions
         # and then return the new positions
-
-
+        all_possible_moves = KnightPathFinder.valid_moves(pos)
+        new_positions = []
+        all_possible_moves.each do |move|
+            if !@considered_positions.include?(move)
+                @considered_positions << move
+                new_positions << move
+            end
+        end
+        new_positions
     end
 
+    def build_move_tree
+
+    end
 
 
 
