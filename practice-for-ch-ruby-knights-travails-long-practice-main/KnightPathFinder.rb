@@ -1,7 +1,7 @@
 require_relative "tree_node.rb"
 
 class KnightPathFinder
-
+    attr_reader :root_node
     def self.valid_moves(pos)
         x, y = pos
         output = []
@@ -65,7 +65,7 @@ class KnightPathFinder
             queue.concat(new_positions)
             parent_queue.concat(new_positions.map {|ele| child_node})
         end
-
+        # p @root_node.children
 
 
     end
